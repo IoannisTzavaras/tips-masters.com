@@ -26,11 +26,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @package	Tips Masters Beta
+ * @package	    Tips Masters Version 1.0.0
  * @author      Ioannis Tzavaras <ioammis-tzavaras@tips-masters.com>
  * @copyright   (c) 2015, Ioannis Tzavaras
- * @license	http://opensource.org/licenses/MIT	MIT License
- * @link	http://tips-masters.com
+ * @license	    http://opensource.org/licenses/MIT	MIT License
+ * @link	      http://tips-masters.com
  * @since       V 1.0.0
  * @filesource
  */
