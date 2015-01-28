@@ -1,12 +1,12 @@
 <?php
 /**
- * Tips Masters Version 1.0.0
- * 
- * That is a new football betting social network
+ * CodeIgniter
+ *
+ * An open source application development framework for PHP
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2015, Ioannis Tzavaras
+ * Copyright (c) 2014 - 2015, British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,32 +26,38 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- * @package	    Tips Masters Version 1.0.0
- * @author      Ioannis Tzavaras <ioammis-tzavaras@tips-masters.com>
- * @copyright   (c) 2015, Ioannis Tzavaras
- * @license	    http://opensource.org/licenses/MIT	MIT License
- * @link	      http://tips-masters.com
- * @since       V 1.0.0
+ * @package	CodeIgniter
+ * @author	EllisLab Dev Team
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc. (http://ellislab.com/)
+ * @copyright	Copyright (c) 2014 - 2015, British Columbia Institute of Technology (http://bcit.ca/)
+ * @license	http://opensource.org/licenses/MIT	MIT License
+ * @link	http://codeigniter.com
+ * @since	Version 1.3.0
  * @filesource
  */
+defined('BASEPATH') OR exit('No direct script access allowed');
 
-/*
- *---------------------------------------------------------------
- * Application Name
- *---------------------------------------------------------------
+/**
+ * ODBC Utility Class
  *
- * This variable must contain the name of the website.
+ * @package		CodeIgniter
+ * @subpackage	Drivers
+ * @category	Database
+ * @author		EllisLab Dev Team
+ * @link		http://codeigniter.com/database/
  */
-$config['app_name'] = "Tips Masters";
+class CI_DB_odbc_utility extends CI_DB_utility {
 
-/*
- *---------------------------------------------------------------
- * Application Version
- *---------------------------------------------------------------
- *
- * This variable must contain the version of the website.
- */
-$config['app_version'] = "1.0.0";
+	/**
+	 * Export
+	 *
+	 * @param	array	$params	Preferences
+	 * @return	mixed
+	 */
+	protected function _backup($params = array())
+	{
+		// Currently unsupported
+		return $this->db->display_error('db_unsupported_feature');
+	}
 
-/* End of file application.php */
-/* Location: ./config/application.php */
+}
