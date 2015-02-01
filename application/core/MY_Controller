@@ -1,0 +1,107 @@
+<?php
+/**
+ * Tips Masters
+ *
+ * Η Tips Masters είναι η απόλυτη ιστοσελίδα κοινωνικής δικτύωσης για παίκτες 
+ * ποδοσφαιρικού στοιχήματος. Ο χρήστης με την Tips Masters έχει τη δυνατότητα 
+ * να δώσει τα στοιχήματα του, να δει τα στοιχήματα των άλλων, να κάνει τα 
+ * σχόλια του και να δει τα σχόλια των άλλων για τους αγώνες. Κοινωνικά ο 
+ * χρήστης μπορεί να ακολουθήσει άλλους χρήστες, να επικοινωνήσει με άλλους 
+ * χρήστες ιδιωτικά και δημόσια. Τέλος η Tips Masters διαθέτει ένα σύστημα 
+ * αξιολόγισης για τους χρήστες με το οποίο μπορούν να αναδειχθούν οι κορυφαίοι 
+ * χρήστες και αυτό κάνει την Tips Masters ενδιαφέρουσα.
+ *
+ * Copyright (c) 2015, Ιωάννης Τζαβάρας
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ *
+ * @package	Tips Masters
+ * @author	Ιωάννης Τζαβάρας
+ * @copyright	Copyright (c) 2015, Ιωάννης Τζαβάρας ( https://www.facebook.com/tzavaras.g.ioannis )
+ * @license	http://opensource.org/licenses/MIT	MIT License
+ * @link	http://tips-masters.com
+ * @since	Version 1.0.0
+ * @filesource
+ */
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/**
+ * MY_Controller Class
+ *
+ * Αυτός είναι ο υπέρ – ελεγκτής ο οποίος είναι υπεύθυνος να μεταφερει της 
+ * υπερ – μεταβλητές οι οποίες θα χρησιμοποιηθούν σε όλους τους άλλους 
+ * υπό – ελεγκτές για την ορθή λειτουργία της ιστοσελίδας.
+ *
+ * @package		Tips Masters
+ * @subpackage	Controllers
+ * @category	Controllers
+ * @author		Ιωάννης Τζαβάρας < ioannis-tzavaras@tips-masters.com >
+ */
+class MY_Controller extends CI_Controller{
+    
+    /**
+     * Με αυτή την υπέρ – μεταβλητή ορίζεται η γλώσσα της ιστοσελίδας.
+     * 
+     * @access public
+     * @var array   ('short', 'code', 'full')
+     */
+    public $site_language = array();
+    //--------------------------------------------------------------------------
+
+    /**
+     * __construct Function
+     *
+     * Εκτελείται αυτόματα κατά την κλήση της κλάσης. Ορίζει αυτόματα όλες τις 
+     * υπέρ – μεταβλητές.
+     * 
+     * @access public
+     * @return	void
+     */
+    public function __construct() {
+        parent::__construct();
+        
+        // Ορισμός τρέχουσας γλώσσας ιστοσελίδας
+        $this->set_language();
+    }
+    //--------------------------------------------------------------------------
+    
+    /**
+     * Η μέθοδος αυτή ορίζει αυτόματα στην υπέρ-μεταβλητή $site_language την 
+     * τρέχουσα γλώσσα της ιστοσελίδας.
+     * 
+     * @access private
+     * @return	void
+     */
+    private function set_language() {
+        $lang = $this->input->get('locale');
+        switch ($lang) {
+            case "en_GB" :
+                $this->site_language['short'] = "en";
+                $this->site_language['code'] = "en_GB";
+                $this->site_language['full'] = "english";
+                break;
+            default :
+                $this->site_language['short'] = "en";
+                $this->site_language['code'] = "en_GB";
+                $this->site_language['full'] = "english";
+        }
+    }
+    //--------------------------------------------------------------------------
+}
+//------------------------------------------------------------------------------
